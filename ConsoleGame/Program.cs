@@ -1,6 +1,6 @@
 ﻿
-using Lesson9.Game;
-using Lesson9.GUI;
+using ConsoleGame.Game;
+using ConsoleGame.Gui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 //kuriam zaidima!
-namespace Lesson9
+namespace ConsoleGame
 {
     class Program
     {
