@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.Game
+namespace Lesson9.Units
 {
     class Unit
     {
-
         protected int x;
         protected int y;
-        private string name;
+        protected string name;
 
         public Unit(int x, int y, string name)
         {
@@ -20,7 +21,7 @@ namespace ConsoleGame.Game
 
         public void PrintInfo()
         {
-            Console.WriteLine($" Unit {name} is at {x}x{y}");
+            Console.WriteLine($"{name} is at {x}x{y}");
         }
     }
 }

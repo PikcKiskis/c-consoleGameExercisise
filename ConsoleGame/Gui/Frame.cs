@@ -1,43 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.Gui
+namespace Lesson9.GUI
 {
     class Frame : GuiObject
     {
-        private char _renderChar;
+        private char renderChar;
 
         public Frame(int x, int y, int width, int height, char renderChar) : base(x, y, width, height)
         {
-            _renderChar = renderChar;
+            this.renderChar = renderChar;
         }
 
-
-        public override void Render()
+        public void Render()
         {
-            for (int i = 0; i < _height; i++)
+            for (int i = 0; i < height; i++)
             {
-                Console.SetCursorPosition(_x, _y + i);
-                if (i == 0 || i == _height - 1)
+                Console.SetCursorPosition(x, y + i);
+                if (i == 0 || i == height - 1)
                 {
-                    for (int j = 0; j < _width; j++)
+                    for (int j = 0; j < width; j++)
                     {
-                        Console.Write(_renderChar);
+                        Console.Write(renderChar);
                     }
                 }
                 else
                 {
-                    Console.Write(_renderChar);
-                    for (int j = 0; j < _width - 2; j++)
+                    Console.Write(renderChar);
+                    for (int j = 0; j < width - 2; j++)
                     {
                         Console.Write(' ');
                     }
 
-                    Console.Write(_renderChar);
+                    Console.Write(renderChar);
                 }
             }
         }
     }
+
 
 }

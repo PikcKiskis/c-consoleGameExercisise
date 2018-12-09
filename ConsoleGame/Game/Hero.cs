@@ -1,23 +1,30 @@
-﻿using System;
+﻿using Lesson9.Units;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.Game
+namespace Lesson9
 {
     class Hero : Unit
     {
+
         public Hero(int x, int y, string name) : base(x, y, name)
         {
+
         }
 
-        public void MoveRight()
+        public int MoveRight()
         {
-            x++;
+            return x++;
         }
 
-        public void MoveLeft()
+        public int MoveLeft()
         {
-            x--;
+            return x--;
         }
+
+
     }
 }

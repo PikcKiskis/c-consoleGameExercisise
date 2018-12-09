@@ -1,43 +1,76 @@
-﻿using ConsoleGame.Gui;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.View
+namespace Lesson9.GUI
 {
-    sealed class GameWindow : Window
+    class GameWindow : Window
     {
-
-        private Button startButton;
         private Button creditsButton;
         private Button quitButton;
+        private Button startButton;
         private TextBlock titleTextBlock;
+        private List<Button> gameWindowButtons;
 
-        public GameWindow() : base(0, 0, 120, 30, '%')
+        public GameWindow() : base(0, 0, 80, 25, '%')
         {
-            titleTextBlock = new TextBlock(10, 5, 100, new List<String> { "Super duper zaidimas", "Vardas Pavardaitis kuryba!", "Made in Vilnius Coding School!" });
 
-            startButton = new Button(20, 13, 18, 5, "Start");
+            titleTextBlock = new TextBlock(15, 5, 50, new List<string> { "Game", "By Aiste Lebedeva", "Made in Vilnius Coding School!", "", "()()", " (-.-)", "     o_(\")(\")" });
+            startButton = new Button(5, 18, 18, 5, "Start");
+            creditsButton = new Button(30, 18, 18, 5, "Credits");
+            quitButton = new Button(55, 18, 18, 5, "Quit");
+
+            gameWindowButtons = new List<Button>() { startButton, creditsButton, quitButton };
             startButton.SetActive();
-
-            creditsButton = new Button(50, 13, 18, 5, "Credits");
-
-            quitButton = new Button(80, 13, 18, 5, "Quit");
+            creditsButton.SetInActive();
+            quitButton.SetInActive();
 
             Render();
         }
 
+
         public override void Render()
         {
             base.Render();
-
             titleTextBlock.Render();
 
-            startButton.Render();
-            creditsButton.Render();
-            quitButton.Render();
+            foreach (var button in gameWindowButtons)
+            {
+                button.Render();
+            }
 
             Console.SetCursorPosition(0, 0);
+
         }
+
+        public void ShowMenu()
+        {
+            Render();
+        }
+
+        public void ActivateButtonRight(int i)
+        {
+
+            gameWindowButtons.ElementAt(i - 1).SetInActive();
+            gameWindowButtons.ElementAt(i).SetActive();
+            gameWindowButtons.ElementAt(i - 1).Render();
+            gameWindowButtons.ElementAt(i).Render();
+
+        }
+
+        public void ActivateButtonLeft(int i)
+        {
+
+
+            gameWindowButtons.ElementAt(i + 1).SetInActive();
+            gameWindowButtons.ElementAt(i).SetActive();
+            gameWindowButtons.ElementAt(i + 1).Render();
+            gameWindowButtons.ElementAt(i).Render();
+
+        }
+
+
     }
 }

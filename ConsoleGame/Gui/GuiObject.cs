@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.Gui
+namespace Lesson9.GUI
 {
     abstract class GuiObject
     {
-        protected int _x;
-        protected int _y;
-        protected int _width;
-        protected int _height;
+        protected int x;
+        protected int y;
+        protected int width;
+        protected int height;
 
         public GuiObject(int x, int y, int width, int height)
         {
-            _x = x;
-            _y = y;
-            _width = width;
-            _height = height;
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
         }
-
-        public abstract void Render();
-
     }
 }

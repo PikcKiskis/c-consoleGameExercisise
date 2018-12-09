@@ -1,40 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleGame.Game
+namespace Lesson9
 {
+
     class GameScreen
     {
         private int width;
         private int height;
 
         private Hero hero;
-        private List<Enemy> enemies = new List<Enemy>();
+        private List<Enemy> enemiesList = new List<Enemy>();
 
         public GameScreen(int width, int height)
         {
             this.width = width;
             this.height = height;
+
         }
+
 
         public void SetHero(Hero hero)
         {
             this.hero = hero;
-        }
-
-        public void AddEnemy(Enemy enemy)
-        {
-            enemies.Add(enemy);
-        }
-
-        public void Render()
-        {
-            hero.PrintInfo();
-            foreach (Enemy enemy in enemies)
-            {
-                enemy.PrintInfo();
-            }
         }
 
         public Hero GetHero()
@@ -42,25 +33,40 @@ namespace ConsoleGame.Game
             return hero;
         }
 
+        public void AddEnemy(Enemy enemy)
+        {
+            enemiesList.Add(enemy);
+
+        }
+
         public void MoveAllEnemiesDown()
         {
-            foreach (Enemy enemy in enemies)
+            foreach (Enemy enemy in enemiesList)
             {
                 enemy.MoveDown();
             }
         }
 
-        public Enemy getEnemyById(int id)
+        public Enemy GetEnemyById(int id)
         {
-            foreach (Enemy enemy in enemies)
+            foreach (Enemy enemy in enemiesList)
             {
-                if (enemy.GetId() == id)
-                {
-                    return enemy;
-                }
+                enemy.GetId();
+                return enemy;
             }
 
             return null;
         }
+
+        public void Render()
+        {
+            hero.PrintInfo();
+            foreach (Enemy enemy in enemiesList)
+            {
+                enemy.PrintInfo();
+            }
+        }
+
+
     }
 }
